@@ -1,0 +1,15 @@
+<%= link_to 'Home', "http://localhost:3000/" %>
+
+<h1>All Members</h1>
+
+<ul>
+  <%if @members.length >0%>
+    <% @members.each do |member| %>
+      <li><%= link_to member.first_name, member_path(member) %></li>
+    <% end %>
+  <%else%>
+    <p>No Members to show</p>
+  <%end%>
+</ul>
+
+<%= link_to 'New Member', new_member_path %>

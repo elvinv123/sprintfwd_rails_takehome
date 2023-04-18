@@ -1,0 +1,15 @@
+<%= link_to 'Home', "http://localhost:3000/" %>
+
+<h1>All Teams</h1>
+
+<ul>
+  <%if @teams.length >0%>
+    <% @teams.each do |team| %>
+      <li><%= link_to team.name, team_path(team) %></li>
+    <% end %>
+  <%else%>
+    <p>No Teams to show</p>
+  <%end%>
+</ul>
+
+<%= link_to 'New Team', new_team_path %>

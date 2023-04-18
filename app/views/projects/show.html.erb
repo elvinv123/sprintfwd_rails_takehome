@@ -1,0 +1,18 @@
+<%= link_to 'Home', "http://localhost:3000/" %>
+<%= link_to 'All Projects', projects_path %>
+
+<h1><%= @project.name %></h1>
+
+<h2>Members:</h2>
+<ul>
+  <%if @project.members.length >0%>
+    <% @project.members.each do |member| %>
+      <li><%= link_to member.first_name, member_path(member) %></li>
+    <% end %>
+  <%else%>
+    <p>No Members on this project yet</p>
+  <%end%>
+</ul>
+
+<%= link_to 'Edit Project', edit_project_path(@project) %>
+<%= button_to 'Delete Project', project_path(@project), method: :delete %>

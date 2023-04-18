@@ -1,0 +1,24 @@
+<%= link_to 'Home', "http://localhost:3000/" %>
+<%= link_to 'All Members', members_path %>
+
+<h1><%= @member.first_name %> <%= @member.last_name %></h1>
+<p>Team: <%= link_to @member.team.name, team_path(@member.team) %></p>
+
+<p>City: <%= @member.city.blank? ? "none specified" : @member.city %></p>
+<p>State: <%= @member.state.blank? ? "none specified" : @member.state %></p>
+<p>Country: <%= @member.country.blank? ? "none specified" : @member.country %></p>
+
+<h2>Projects:</h2>
+<ul>
+  <%if @member.projects.length >0%>
+    <% @member.projects.each do |project| %>
+      <li><%= link_to project.name, project_path(project) %></li>
+    <% end %>
+  <%else%>
+    <p>No projects yet</p>
+  <%end%>
+</ul>
+
+<%= link_to 'Edit Member', edit_member_path(@member) %>
+<%= button_to 'Delete Member', member_path(@member), method: :delete %>
+

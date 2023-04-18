@@ -1,0 +1,18 @@
+<%= link_to 'Home', "http://localhost:3000/" %>
+<%= link_to 'All Teams', teams_path %>
+
+<h1><%= @team.name %></h1>
+
+<h2>Members:</h2>
+<ul>
+  <%if @team.members.length >0%>
+    <% @team.members.each do |member| %>
+      <li><%= link_to member.first_name, member_path(member) %></li>
+    <% end %>
+  <%else%>
+    <p>No Members on this team yet</p>
+  <%end%>
+</ul>
+
+<%= link_to 'Edit Team', edit_team_path(@team) %>
+<%= button_to 'Delete Team', team_path(@team), method: :delete %>
