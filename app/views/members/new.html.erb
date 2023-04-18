@@ -22,7 +22,7 @@
     <%= f.label "Team*" %>
     <%= f.collection_select :team_id, Team.all, :id, :name %>
 
-    <%= f.label :project_ids %>
+    <%= f.label "Projects" %>
     <%= f.collection_select :project_ids, Project.all, :id, :name, {}, { multiple: true } %>
 
     <%= f.submit 'Create Member' %>
@@ -32,3 +32,5 @@
   <p>There must be at least one team to create a member</p>
   <%= link_to 'Create New Team', new_team_path %>
 <%end%>
+<p>*Required Field</p>
+<p>Projects input is multiselect</p>

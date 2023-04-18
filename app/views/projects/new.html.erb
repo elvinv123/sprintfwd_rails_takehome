@@ -4,11 +4,13 @@
 <h1>New Project</h1>
 
 <%= form_for @project do |f| %>
-  <%= f.label :name %>
+  <%= f.label "Name*" %>
   <%= f.text_field :name %>
 
-  <%= f.label :member_ids %>
+  <%= f.label "Members" %>
   <%= f.collection_select :member_ids, Member.all, :id, :first_name, {}, { multiple: true } %>
 
   <%= f.submit 'Create Project' %>
 <% end %>
+<p>*Required Field</p>
+<p>Members input is multiselect</p>
